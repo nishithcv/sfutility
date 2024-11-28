@@ -1,0 +1,7 @@
+.slds-modal__header .slds-modal__close {
+    display: none;
+}
+
+.slds-modal__content {
+    background-color: transparent;
+}

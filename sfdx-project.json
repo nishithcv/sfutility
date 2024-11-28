@@ -3,6 +3,9 @@
     {
       "path": "force-app",
       "default": true
+    },
+    {
+      "path": "lwc-screen-quickaction-without-close"
     }
   ],
   "name": "sfutils",
