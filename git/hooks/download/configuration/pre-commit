@@ -2,7 +2,13 @@
 
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 
-# GAP = "#####################"
+if [[ "$BRANCH_NAME" == main || "$BRANCH_NAME" == fullcopy ]]; then
+    echo "====================="
+    echo "❌ Commit blocked: No changes should be made on main or fullcopy branches."
+    echo "====================="
+    exit 1
+fi
+
 
 # Check if branch starts with STRY and contains _MC
 if [[ "$BRANCH_NAME" =~ ^STRY && "$BRANCH_NAME" == *_MC* ]]; then
