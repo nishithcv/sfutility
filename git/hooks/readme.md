@@ -1,11 +1,11 @@
-### GIT Hooks
+# GIT Hooks
 
 ## Summary
 
-# Pre-Commit Hook
+### Pre-Commit Hook
 Block any commits on a merge conflict branch
 
-# Commit-Msg Hook
+### Commit-Msg Hook
 Add Branch name automatically if the name is not already added
 
 
@@ -14,5 +14,4 @@ Add Branch name automatically if the name is not already added
 ```
 configuration/setup.ps1
 ```
-
 * Make sure that you see 2 success messages after the script is run
