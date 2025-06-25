@@ -1,0 +1,18 @@
+#!/bin/bash
+
+COMMIT_MSG_FILE="$1"
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+
+# Check if branch starts with STRY and does not contain _MC
+if [[ "$BRANCH_NAME" =~ ^STRY[0-9]+ && "$BRANCH_NAME" != *_MC* ]]; then
+    # Extract STRY number from branch name
+    STRY_NUM=$(echo "$BRANCH_NAME" | grep -oE "^STRY[0-9]+")
+    
+    # Read current commit message
+    COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+    # Check if commit message already starts with STRY number
+    if [[ ! "$COMMIT_MSG" =~ ^$STRY_NUM ]]; then
+        echo "$STRY_NUM $COMMIT_MSG" > "$COMMIT_MSG_FILE"
+    fi
+fi

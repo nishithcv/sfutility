@@ -1,0 +1,17 @@
+#!/bin/bash
+
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+
+# GAP = "#####################"
+
+# Check if branch starts with STRY and contains _MC
+if [[ "$BRANCH_NAME" =~ ^STRY && "$BRANCH_NAME" == *_MC* ]]; then
+    echo "====================="
+    echo "❌ Commit blocked: Commits cannot be performed on Merge Conflict branches."
+    echo "====================="
+    echo "💡 If commits are to be made on Merge Conflict Branch. Make the commit on Parent Branch and then create a new Merge Conflict Branch."
+    echo "====================="
+    exit 1
+fi
+
+exit 0
